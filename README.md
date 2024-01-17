@@ -143,7 +143,7 @@ contract NewToken is ERC20Plugins {
 ```
 **Simple plugin contract**
 ```
-contract myPlugin is ERC20, Plugin {
+contract MyPlugin is ERC20, Plugin {
     constructor(string memory name, string memory symbol, IERC20Plugins token_)
         ERC20(name, symbol)
         Plugin(token_)
