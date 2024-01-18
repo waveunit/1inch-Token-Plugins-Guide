@@ -61,6 +61,8 @@ All plugins will only track the balances of participating accounts. So all non-p
 
 Therefore, if a non-participant sends a plugin-enabled token to an existing participant, it will effectively “mint” the tracked balance. If a participant sends a plugin-enabled token to a non-participant, it will effectively “burn” the tracked balance.
 
+![Token Transfers](TokenTransferDiagram.png)
+
 For security purposes, plugins are designed with several fail-safes, including a maximum number of usable plugins, custom gas limits, a reentrancy guard, and native isolation from the main contract state. The maximum plugins and gas limit can be initialized as state variables using `MAX_PLUGINS_PER_ACCOUNT` and `PLUGIN_CALL_GAS_LIMIT`, respectively. For reentrancy prevention, `ReentrancyGuardExt` is included from OpenZeppelin’s library. Finally, for native isolation from the token contract, a single method with only three arguments (`To`, `From`, and `Amount`) is used. This simple architecture results in a dynamic (and risk-free!) enhancement of any ERC20 contract’s capabilities.
 
 ## How do accounts (users) add or remove to a plugin?
